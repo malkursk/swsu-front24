@@ -18,7 +18,7 @@ async function loadFacults() {
 
 <template>
   <div class="container">
-    {{ title }}
+    <b>{{ title }}</b>
     <div v-if="fetches">
       <div v-for="v in fetches.data">
         <li>
