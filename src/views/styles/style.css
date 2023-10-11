@@ -1,0 +1,4 @@
+.navbar-collapse p:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}

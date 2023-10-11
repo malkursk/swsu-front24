@@ -1,0 +1,2 @@
+#localhost 
+VITE_SCHEDULE_HOST = https://campus.swsu.ru:12026/api/v2.0
