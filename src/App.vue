@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { onMounted } from "vue";
-import { storeToRefs } from "pinia";
-import router from "@/plugins/router";
+import router from "@/router";
 
 onMounted(() => {});
 </script>
@@ -24,21 +23,18 @@ onMounted(() => {});
           id="navbarScroll"
           class="collapse navbar-collapse"
         >
-          <p @click="router.push('/main')">
+          <p @click="router.push('/')">
+            Главная
+          </p>        
+          <p @click="router.push('/facult')">
             Факультеты
           </p>
-          <p @click="router.push('/')">
-            Формы обучения
-          </p>
-          <p @click="router.push('/')">
-            Семестр
+          <p @click="router.push('/work')">
+            Расписание
           </p>
         </div>
       </div>
     </nav>
-    <button class="btn">
-      <a href="https://swsu.ru/">На сайт ЮЗГУ</a>
-    </button>
     <router-view />
   </div>
 </template>

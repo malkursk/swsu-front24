@@ -1,19 +1,17 @@
 import { defineStore } from 'pinia';
 import { StoreFragment, transformClass } from 'pinia-class-transformer';
 import { AxiosResponse } from 'axios';
-import { instanceCampus } from '@/plugins/axios';
-
+import { instanceCampus } from '@/store/axios';
 
 class State {
 }
 
 class Fragment extends StoreFragment<State, Fragment> {
   
-
   async initApp() {
   }
 
-  async getFacultets() {
+  async getData() {
     try {
       const response: AxiosResponse = await instanceCampus.get(
         "/readonly/facultet/list"
@@ -24,9 +22,9 @@ class Fragment extends StoreFragment<State, Fragment> {
       console.log(error);
     }
   }
-  
+
 }
 
-const useScheduleStore = defineStore('schedule', transformClass(State, Fragment));
+const useStore = defineStore('facultet', transformClass(State, Fragment));
 
-export default useScheduleStore;
+export default useStore;

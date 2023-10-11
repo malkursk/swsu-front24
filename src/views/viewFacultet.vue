@@ -1,26 +1,28 @@
 <script setup lang="ts">
 import { onMounted, ref, watch } from "vue";
-import useScheduleStore from "@/store/schedule/index";
+import useStore from "@/store/storeFacultet";
 
-const scheduleStore = useScheduleStore();
+const STORE = useStore();
 
 let fetches = ref();
-const title = "Список факультетов:";
-console.log(123);
+const title = "Список факультетов";
 onMounted(() => {
   loadFacults();
 });
 
 async function loadFacults() {
-  fetches.value = await scheduleStore.getFacultets();
+  fetches.value = await STORE.getData();
 }
 </script>
 
 <template>
   <div class="container">
-    <b>{{ title }}</b>
+    <h5>{{ title }}</h5>
     <div v-if="fetches">
-      <div v-for="v in fetches.data">
+      <div
+        v-for="v in fetches.data"
+        :key="v.id"
+      >
         <li>
           {{ v.name }},<i class="p-1 bi-telephone" />{{ v.decanat_phone }}
         </li>

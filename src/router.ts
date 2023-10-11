@@ -1,13 +1,21 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-import  useRootStore  from '@/store/schedule/index';
-import pinia from '@/store';
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/main',
+    path: '/',
     name: 'main',
-    component: () => import('@/views/schedule/index.vue') 
+    component: () => import('@/views/viewMain.vue') 
+  },    
+  {
+    path: '/facult',
+    name: 'facult',
+    component: () => import('@/views/viewFacultet.vue') 
   },   
+  {
+    path: '/work/:groupName?',
+    name: 'work',
+    component: () => import('@/views/viewWork.vue') 
+  },    
 ]
 
 const router = createRouter({
@@ -16,7 +24,6 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  const rootStore = useRootStore(pinia())
   console.log(to, from)
   next();
 });
